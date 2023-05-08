@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  pomp_dzis: 1
+  pomp_dzien: 1
+  pomp_tydzien: 1
+  pomp_miesiac: 1
+  data: 2023-05-08
+
+two:
+  user_id: 1
+  pomp_dzis: 1
+  pomp_dzien: 1
+  pomp_tydzien: 1
+  pomp_miesiac: 1
+  data: 2023-05-08

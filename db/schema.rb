@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_123148) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_08_101433) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pomps", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pomp_dzis"
+    t.integer "pomp_dzien"
+    t.integer "pomp_tydzien"
+    t.integer "pomp_miesiac"
+    t.date "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "imie"
+    t.string "nazwisko"
+    t.string "nick"
+    t.integer "wiek"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
