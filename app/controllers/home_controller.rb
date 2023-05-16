@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def top
   end
+
+  def user_tab
+  end
 end

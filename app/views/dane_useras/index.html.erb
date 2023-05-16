@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dane userów</h1>
+
+<div id="dane_useras">
+  <% @dane_useras.each do |dane_usera| %>
+     <%= render dane_usera %>
+    <p>
+      <%= link_to "Show this user", dane_usera, class:"btn btn-secondary" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New User", new_dane_usera_path, class:"btn btn-dark" %>
+<table class="table">

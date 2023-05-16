@@ -1,0 +1,2 @@
+class DaneUsera < ApplicationRecord
+end

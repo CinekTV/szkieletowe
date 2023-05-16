@@ -1,0 +1,33 @@
+<%= form_with(model: dane_usera) do |form| %>
+  <% if dane_usera.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(dane_usera.errors.count, "error") %> prohibited this dane_usera from being saved:</h2>
+
+      <ul>
+        <% dane_usera.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.text_field :imie, class:"form-control", placeholder:"Imię" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :nazwisko, class:"form-control", placeholder:"Nazwisko" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :nick, class:"form-control", placeholder:"Nick" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.number_field :wiek, class:"form-control", placeholder:"Wiek" %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
