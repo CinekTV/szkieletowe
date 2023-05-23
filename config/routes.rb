@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :pomps
+      resources :dane_useras
+      resources :users
+
+      root to: "pomps#index"
+    end
   devise_for :users
   resources :dane_useras
   get 'home/top'

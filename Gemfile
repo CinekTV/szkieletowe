@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
-
+gem "administrate"
 
 
 group :development, :test do
