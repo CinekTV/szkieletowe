@@ -8,8 +8,23 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
         <%= link_to "TOPka", home_top_path, class: "nav-link" %></li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+          <%= link_to "User Tab", home_user_tab_path, class: "nav-link" %></li>
+          <li class="nav-item">
+          <%= link_to "Edytuj Profil", edit_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item">
+          <%= link_to "Wyloguj się", destroy_user_session_path, class: "nav-link" %></li>
+          <% if current_user.check_admin %>
+            <li class="nav-item">
+            <%= link_to "Admin Panel", admin_root_path, class: "nav-link" %></li>
+          <% end %>
+        <% else %>
         <li class="nav-item">
-        <%= link_to "User Tab", home_user_tab_path, class: "nav-link" %></li>
+        <%= link_to "Zarejestruj się", new_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item">
+          <%= link_to "Zaloguj się", new_user_session_path, class: "nav-link" %></li>
+        <% end %>
       </ul>
     </div>
   </div>

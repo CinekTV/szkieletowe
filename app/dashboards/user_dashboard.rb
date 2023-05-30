@@ -20,6 +20,10 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     user_id: Field::Number,
     wiek: Field::Number,
+    pomp_dzien: Field::Number,
+    pomp_tydzien: Field::Number,
+    pomp_miesiac: Field::Number,
+    pomp_all: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -53,6 +57,10 @@ class UserDashboard < Administrate::BaseDashboard
     wiek
     created_at
     updated_at
+    pomp_dzien
+    pomp_tydzien
+    pomp_miesiac
+    pomp_all
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -70,6 +78,10 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_token
     user_id
     wiek
+    pomp_dzien
+    pomp_tydzien
+    pomp_miesiac
+    pomp_all
   ].freeze
 
   # COLLECTION_FILTERS
