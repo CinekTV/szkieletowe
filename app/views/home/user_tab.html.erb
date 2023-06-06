@@ -1,1 +1,15 @@
-<h1>profil usera tutaj</h1>
+    <div class="container">
+        <h1>Twoje dane:</h1>
+        <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Nick: <% if current_user.nick %> <%= current_user.nick %> <% else %> BRAK <% end %></li>
+        <li class="list-group-item">A list item</li>
+        <li class="list-group-item">A list item</li>
+        </ol>
+        <br/>
+        <h1>Twoje statyski:</h1>
+        <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Pompki dziś <%= current_user.pomp_dzien %></li>
+        <li class="list-group-item">A list item</li>
+        <li class="list-group-item">A list item</li>
+        </ol>
+    </div>
