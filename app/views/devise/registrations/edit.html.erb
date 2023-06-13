@@ -9,8 +9,23 @@
   </div>
 
   <div class="field">
+    <%= f.label :imie %><br />
+    <%= f.text_field :imie, autocomplete: "imie" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nazwisko %><br />
+    <%= f.text_field :nazwisko, autocomplete: "nazwisko" %>
+  </div>
+
+  <div class="field">
     <%= f.label :nick %><br />
     <%= f.text_field :nick, autocomplete: "nick" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wiek %><br />
+    <%= f.number_field :wiek, autocomplete: "wiek" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

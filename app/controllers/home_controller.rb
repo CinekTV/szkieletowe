@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def top
+    @users = User.all
   end
 
   def user_tab
