@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def top
     @users = User.all
+    @users_dzien = User.order(pomp_dzien: :desc)
   end
 
   def user_tab

@@ -1,5 +1,6 @@
 <h1>Strona zawierakjąca różne listy TOP</h1>
-<% @users.each do |user| %>
+<% @users_dzien.each do |user| %>
+    <%= user.pomp_dzien %><br/>
     <%= user.email %><br/>
     <%= user.nick %><br/>
   <% end %>
