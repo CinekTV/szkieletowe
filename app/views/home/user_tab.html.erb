@@ -15,13 +15,19 @@
         <li class="list-group-item">Treningi łącznie: <%= current_user.pomp_miesiac %></li>
         </ol>
     </div>
-  
+    <br/>
+    <div class="container">
     <%= form_for(@user, url: user_registration_path, html: { method: :put }) do |f| %>
         <div class="field">
             <%= f.label :Pompki_zrobione_dziś %><br />
-            <%= f.number_field :pomp_dzien, autocomplete: false %>
+            <%= f.number_field :pomp_dzien, autocomplete: "true", value: 0 %>
         </div>
+        <div class="field"><br/>
+            <i>Podaj hasło aby zatwierdzić</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" %>
+         </div>
         <div class="actions">
             <%= f.submit "Dodaj pompki" %>
         </div>
     <% end %>
+    </div>

@@ -23,6 +23,7 @@ class UserDashboard < Administrate::BaseDashboard
     pomp_dzien: Field::Number,
     pomp_tydzien: Field::Number,
     pomp_miesiac: Field::Number,
+    pompki_kiedy: Field::DateTime,
     pomp_all: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -60,6 +61,7 @@ class UserDashboard < Administrate::BaseDashboard
     pomp_dzien
     pomp_tydzien
     pomp_miesiac
+    pompki_kiedy
     pomp_all
   ].freeze
 
@@ -81,6 +83,7 @@ class UserDashboard < Administrate::BaseDashboard
     pomp_dzien
     pomp_tydzien
     pomp_miesiac
+    pompki_kiedy
     pomp_all
   ].freeze
 
