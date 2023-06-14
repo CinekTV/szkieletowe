@@ -8,5 +8,7 @@ class HomeController < ApplicationController
   end
 
   def user_tab
+    @user = current_user
   end
+
 end

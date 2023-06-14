@@ -2,14 +2,26 @@
         <h1>Twoje dane:</h1>
         <ol class="list-group list-group-numbered">
         <li class="list-group-item">Nick: <% if current_user.nick %> <%= current_user.nick %> <% else %> BRAK <% end %></li>
-        <li class="list-group-item">A list item</li>
-        <li class="list-group-item">A list item</li>
+        <li class="list-group-item">Imię: <% if current_user.imie %> <%= current_user.imie %> <% else %> BRAK <% end %></li>
+        <li class="list-group-item">Nazwisko: <% if current_user.nazwisko %> <%= current_user.nazwisko %> <% else %> BRAK <% end %></li>
+        <li class="list-group-item">Email: <% if current_user.email %> <%= current_user.email %> <% else %> BRAK <% end %></li>
         </ol>
         <br/>
         <h1>Twoje statyski:</h1>
         <ol class="list-group list-group-numbered">
-        <li class="list-group-item">Pompki dziś <%= current_user.pomp_dzien %></li>
-        <li class="list-group-item">A list item</li>
-        <li class="list-group-item">A list item</li>
+        <li class="list-group-item">Pompki dziś: <%= current_user.pomp_dzien %></li>
+        <li class="list-group-item">Pompki łącznie: <%= current_user.pomp_all %></li>
+        <li class="list-group-item">Treningi w ciągu ostatnich 30 dni: <%= current_user.pomp_tydzien %></li>
+        <li class="list-group-item">Treningi łącznie: <%= current_user.pomp_miesiac %></li>
         </ol>
     </div>
+  
+    <%= form_for(@user, url: user_registration_path, html: { method: :put }) do |f| %>
+        <div class="field">
+            <%= f.label :Pompki_zrobione_dziś %><br />
+            <%= f.number_field :pomp_dzien, autocomplete: false %>
+        </div>
+        <div class="actions">
+            <%= f.submit "Dodaj pompki" %>
+        </div>
+    <% end %>
