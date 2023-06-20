@@ -1,6 +1,18 @@
 <h1>Strona zawierakjąca różne listy TOP</h1>
-<% @users_dzien.each do |user| %>
-    <%= user.pomp_dzien %><br/>
-    <%= user.email %><br/>
-    <%= user.nick %><br/>
-  <% end %>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ranking</th>
+      <th scope="col">Nick</th>
+      <th scope="col">Pompki</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users_dzien.each_with_index do |user, index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td> <% if user.nick %> <%= user.nick %> <% else %> <%= user.email %><% end %></td>
+      <td><%= user.pomp_dzien %></td>
+      <% end %>
+  </tbody>
+</table>

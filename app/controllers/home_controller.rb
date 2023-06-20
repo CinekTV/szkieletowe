@@ -3,12 +3,16 @@ class HomeController < ApplicationController
 
 
   def all_plus
-    userek = User.find(current_user.id)
-    if userek.pomp_dzien > 0
-      userek.pomp_all = userek.pomp_all + userek.pomp_dzien
-      userek.pomp_miesiac = userek.pomp_miesiac + 1
+    if current_user
+      userek = User.find(current_user.id)
+      if userek.pomp_dzien > 0 && userek.pompki_kiedy != Date.current
+        userek.pomp_all = userek.pomp_all + userek.pomp_dzien
+        userek.pomp_miesiac = userek.pomp_miesiac + 1
+        # userek.pomp_dzien = 0
+        userek.pompki_kiedy = Date.current
+      end
+      userek.save
     end
-    userek.save
   end
   
   def index
