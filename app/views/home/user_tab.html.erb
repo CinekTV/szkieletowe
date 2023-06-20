@@ -1,34 +1,39 @@
-    <div class="container">
-        <h1>Twoje dane:</h1>
-        <ol class="list-group list-group-numbered">
-        <li class="list-group-item">Nick: <% if current_user.nick %> <%= current_user.nick %> <% else %> BRAK <% end %></li>
-        <li class="list-group-item">Imię: <% if current_user.imie %> <%= current_user.imie %> <% else %> BRAK <% end %></li>
-        <li class="list-group-item">Nazwisko: <% if current_user.nazwisko %> <%= current_user.nazwisko %> <% else %> BRAK <% end %></li>
-        <li class="list-group-item">Email: <% if current_user.email %> <%= current_user.email %> <% else %> BRAK <% end %></li>
+    <div class="container" style="width: 50%">
+        <h1 class="text-center">Twoje dane:</h1>
+        <br/>
+        <ol class="list-group list-group-item-secondary" style="">
+        <li class="list-group-item fw-bolder">Nick:<div class="fw-normal"style="display: inline"> <% if current_user.nick %> <%= current_user.nick %> <% else %> BRAK <% end %></div></li>
+        <li class="list-group-item fw-bolder">Imię:<div class="fw-normal"style="display: inline"> <% if current_user.imie %> <%= current_user.imie %> <% else %> BRAK <% end %></li>
+        <li class="list-group-item fw-bolder">Nazwisko:<div class="fw-normal"style="display: inline"> <% if current_user.nazwisko %> <%= current_user.nazwisko %> <% else %> BRAK <% end %></li>
+        <li class="list-group-item fw-bolder">Email:<div class="fw-normal"style="display: inline"> <% if current_user.email %> <%= current_user.email %> <% else %> BRAK <% end %></li>
         </ol>
         <br/>
-        <h1>Twoje statyski:</h1>
-        <ol class="list-group list-group-numbered">
-        <li class="list-group-item">Pompki dziś: <%= current_user.pomp_dzien %></li>
-        <li class="list-group-item">Pompki łącznie: <%= current_user.pomp_all %></li>
-        <li class="list-group-item">Treningi w ciągu ostatnich 30 dni: <%= current_user.pomp_tydzien %></li>
-        <li class="list-group-item">Treningi łącznie: <%= current_user.pomp_miesiac %></li>
+        <br/>
+        <br/>
+        <h1 class="text-center">Twoje statyski:</h1>
+        <br/>
+        <ol class="list-group list-group-item-secondary">
+        <li class="list-group-item fw-bolder">Pompki dziś: <div class="fw-normal"style="display: inline"><%= current_user.pomp_dzien %></li>
+        <li class="list-group-item fw-bolder">Pompki łącznie:<div class="fw-normal"style="display: inline"> <%= current_user.pomp_all %></li>
+        <li class="list-group-item fw-bolder">Treningi w ciągu ostatnich 30 dni:<div class="fw-normal"style="display: inline"> <%= current_user.pomp_tydzien %></li>
+        <li class="list-group-item fw-bolder">Treningi łącznie:<div class="fw-normal"style="display: inline"> <%= current_user.pomp_miesiac %></li>
         </ol>
     </div>
     <br/>
-    <div class="container">
-        <% if current_user.pompki_kiedy == Date.current %> Podano już dzisiaj pompki, aby dodać kolejne wróć jutro! <% else %>
+    <br/>
+    <div class="container" style="width: 50%">
+        <% if current_user.pompki_kiedy == Date.current %> <p class="fw-semibold">Podano już dzisiaj pompki, aby dodać kolejne wróć jutro!</p> <% else %>
             <%= form_for(@user, url: user_registration_path, html: { method: :put }) do |f| %>
-                <div class="field">
+                <div class="field form-label" style="width: 20%">
                     <%= f.label :Pompki_zrobione_dziś %><br />
-                    <%= f.number_field :pomp_dzien, autocomplete: "true", value: 0 %>
+                    <%= f.number_field :pomp_dzien, autocomplete: "true", value: 0, class: "form-control" %>
                 </div>
-                <div class="field"><br/>
+                <div class="field form-label" style="width: 20%"><br/>
                     <i>Podaj hasło aby zatwierdzić</i><br />
-                    <%= f.password_field :current_password, autocomplete: "current-password" %>
+                    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
                 </div>
                 <div class="actions">
-                    <%= f.submit "Dodaj pompki" %>
+                    <%= f.submit "Dodaj pompki", class: "btn btn-secondary" %>
                 </div>
             <% end %>
         <% end %>

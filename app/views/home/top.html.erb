@@ -1,18 +1,72 @@
-<h1>Strona zawierakjąca różne listy TOP</h1>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Ranking</th>
-      <th scope="col">Nick</th>
-      <th scope="col">Pompki</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users_dzien.each_with_index do |user, index| %>
-    <tr>
-      <th scope="row"><%= index+1 %></th>
-      <td> <% if user.nick %> <%= user.nick %> <% else %> <%= user.email %><% end %></td>
-      <td><%= user.pomp_dzien %></td>
-      <% end %>
-  </tbody>
-</table>
+<h1 class="text-center">Oto nasze listy TOP:</h1>
+<br/>
+<br/>
+<div class="text-center container" style="width: 50%">
+    <h2> Top 10 Pompek dziś</h2>
+    <br/>
+      <table class="table table-hover table-striped table-bordered border-secondary">
+    <thead>
+      <tr>
+        <th scope="col">Ranking</th>
+        <th scope="col">Nick</th>
+        <th scope="col">Pompki</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @users_dzien.each_with_index do |user, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td> <% if user.nick %> <%= user.nick %> <% else %> <%= user.email %><% end %></td>
+        <td><%= user.pomp_dzien %></td>
+        <% end %>
+    </tbody>
+  </table>
+  <br/>
+  <br/>
+  <br/>
+  <div class="text-center container">
+    <h2> Top 5 Pompek zrobionych łącznie</h2>
+    <br/>
+      <table class="table table-hover table-striped table-bordered border-secondary">
+    <thead>
+      <tr>
+        <th scope="col">Ranking</th>
+        <th scope="col">Nick</th>
+        <th scope="col">Pompki</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @users_all.each_with_index do |user, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td> <% if user.nick %> <%= user.nick %> <% else %> <%= user.email %><% end %></td>
+        <td><%= user.pomp_all %></td>
+        <% end %>
+    </tbody>
+  </table>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div class="text-center">
+    <h2> Top 5 Treningów łącznie</h2>
+    <br/>
+      <table class="table table-striped table-hover container table-bordered border-secondary">
+    <thead>
+      <tr>
+        <th scope="col">Ranking</th>
+        <th scope="col">Nick</th>
+        <th scope="col">Treningi</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @users_treall.each_with_index do |user, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td> <% if !user.nick || user.nick == "-" %><%= user.email %> <% else%> <%= user.nick %> <% end %></td>
+        <td><%= user.pomp_miesiac %></td>
+        <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

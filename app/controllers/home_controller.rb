@@ -10,8 +10,8 @@ class HomeController < ApplicationController
         userek.pomp_miesiac = userek.pomp_miesiac + 1
         # userek.pomp_dzien = 0
         userek.pompki_kiedy = Date.current
+        userek.save
       end
-      userek.save
     end
   end
   
@@ -20,7 +20,10 @@ class HomeController < ApplicationController
 
   def top
     @users = User.all
-    @users_dzien = User.order(pomp_dzien: :desc)
+    @users_dzien = User.order(pomp_dzien: :desc).limit(10)
+    @users_all = User.order(pomp_all: :desc).limit(5)
+    @users_trening = User.order(pomp_tydzien: :desc)
+    @users_treall = User.order(pomp_miesiac: :desc).limit(5)
   end
 
   def user_tab

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :dane_useras
 
-  get 'home/user_tab' => "home/user_tab", :as => :user_root
+  get 'home/user_tab' => "home/index", :as => :user_root
   get 'home/top'
   get 'home/index'
   get 'home/user_tab'
